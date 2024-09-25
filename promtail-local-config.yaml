@@ -6,19 +6,86 @@ positions:
   filename: /tmp/positions.yaml
 
 clients:
-  - url: http://192.168.1.x:3100/loki/api/v1/push
-scrape_configs: 
-  - job_name: my_Server_Genaral_logs
+  - url: http://192.168.X.X:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: boot-logs
     static_configs:
-    - targets:
-      - localhost
-      labels:
-        job: my_Server_Genaral_logs
-        __path__: /var/log/*log
-  - job_name: my-Server_Utimaco_batt
+      - targets:
+          - localhost
+        labels:
+          job: boot-logs
+          __path__: /var/log/boot.log-20240503
+
+  - job_name: yum-logs
     static_configs:
-    - targets:
-      - localhost
-      labels:
-        job: my_Server_Utimaco_batt
-        __path__: /home/batstatus.txt
+      - targets:
+          - localhost
+        labels:
+          job: yum-logs
+          __path__: /var/log/yum.log-20240101
+
+  - job_name: maillog-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: maillog-logs
+          __path__: /var/log/maillog
+
+  - job_name: messages-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: messages-logs
+          __path__: /var/log/messages
+
+  - job_name: cron-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: cron-logs
+          __path__: /var/log/cron
+
+  - job_name: dmesg-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: dmesg-logs
+          __path__: /var/log/dmesg
+
+  - job_name: secure-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: secure-logs
+          __path__: /var/log/secure
+
+  - job_name: firewalld-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: firewalld-logs
+          __path__: /var/log/firewalld
+
+  - job_name: tallylog-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: tallylog-logs
+          __path__: /var/log/tallylog
+
+  - job_name: wtmp-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: wtmp-logs
+          __path__: /var/log/wtmp
+
