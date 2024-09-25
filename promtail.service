@@ -1,0 +1,14 @@
+[Unit]
+Description=Grafana Promtail service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/loki/promtail-linux-amd64 -config.file=/opt/loki/promtail-local-config.yaml
+WorkingDirectory=/opt/loki
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
+
+[Install]
