@@ -6,21 +6,19 @@ positions:
   filename: /tmp/positions.yaml
 
 clients:
-  - url: http://192.168.1.59:3100/loki/api/v1/push
-  - url: http://192.168.1.167:3100/loki/api/v1/push
-  - url: http://192.168.1.192:3100/loki/api/v1/push
+  - url: http://192.168.1.x:3100/loki/api/v1/push
 scrape_configs: 
-  - job_name: Trad_CA_Server_Genaral_logs
+  - job_name: my_Server_Genaral_logs
     static_configs:
     - targets:
       - localhost
       labels:
-        job: Trad_CA_Server_Genaral_logs
+        job: my_Server_Genaral_logs
         __path__: /var/log/*log
-  - job_name: Trad_CA_Server_Utimaco_batt
+  - job_name: my-Server_Utimaco_batt
     static_configs:
     - targets:
       - localhost
       labels:
-        job: Trad_CA_Server_Utimaco_batt
+        job: my_Server_Utimaco_batt
         __path__: /home/batstatus.txt
