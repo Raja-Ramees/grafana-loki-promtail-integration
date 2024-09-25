@@ -1,0 +1,5 @@
+systemctl daemon-reload
+systemctl restart promtail
+systemctl enable promtail
+systemctl status promtail
+journalctl -u promtail -f
